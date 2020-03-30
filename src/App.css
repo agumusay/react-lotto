@@ -4,6 +4,7 @@
   padding: 0;
   list-style-type: none;
   outline: none;
+  color: rgb(40, 40, 40);
 }
 
 html,
@@ -13,6 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgb(0, 174, 255), aquamarine);
 }
 
 .lotto-container {
@@ -27,35 +29,38 @@ body {
 .number-container {
   display: flex;
   justify-content: space-evenly;
-  width: 60%;
+  width: 70%;
 }
 
 li {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background: radial-gradient(circle at 20px 20px, #ff5c6ad3, #000);
   justify-content: space-evenly;
   border-radius: 100%;
 }
 
 li:last-child {
-  background-color: blue;
+  background: radial-gradient(circle at 20px 20px, #5ca8ffb7, #000);
 }
 li p {
   color: white;
   font-weight: bold;
 }
 .button-container {
-  width: 230px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
 }
 button {
-  height: 40px;
+  height: 35px;
   padding: 10px;
-  background-color: aquamarine;
+  background: linear-gradient(120deg, rgb(0, 52, 68), rgb(0, 97, 114));
+  color: white;
   border: none;
+  font-weight: bold;
+  border-radius: 0.3rem;
 }
