@@ -5,9 +5,6 @@ class Lotto extends React.Component {
     super(props);
     // this.message = faker.lorem.words();
     // Set initial state
-    this.randomGenerator = num => {
-      return parseInt(Math.random() * num);
-    };
 
     this.state = {
       numbers: []
@@ -17,20 +14,28 @@ class Lotto extends React.Component {
     this.reset = this.reset.bind(this);
   }
 
-  pushNumbers(array, counter) {
-    for (let index = 0; index < counter; index++) {
-      let random = this.randomGenerator(49);
-      if (array.includes(random) === false) {
-        array[index] = random;
+  pushNumbers = length => {
+    let emptyArr = [];
+    let randomGenerator = num => {
+      return parseInt(Math.random() * num);
+    };
+    while (length) {
+      let randomNum = randomGenerator(49);
+      console.log(randomNum);
+      if (emptyArr.indexOf(randomNum) === -1) {
+        emptyArr.push(randomNum);
+      } else {
+        emptyArr.push(randomGenerator(49));
       }
+      length--;
     }
-    array[counter] = this.randomGenerator(10);
-    return array;
-  }
-
+    emptyArr[emptyArr.length] = randomGenerator(10);
+    return emptyArr;
+  };
   handleClick() {
+    console.log(this.pushNumbers(6));
     this.setState({
-      numbers: this.pushNumbers(this.state.numbers, 6)
+      numbers: this.pushNumbers(6)
     });
   }
 
@@ -49,7 +54,7 @@ class Lotto extends React.Component {
           {this.state.numbers.map((num, i) => {
             return (
               <li key={i}>
-                <p>{this.state.numbers[i]}</p>
+                <p>{num}</p>
               </li>
             );
           })}
