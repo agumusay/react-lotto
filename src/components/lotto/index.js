@@ -21,7 +21,7 @@ class Lotto extends React.Component {
     };
     while (length) {
       let randomNum = randomGenerator(49);
-      console.log(randomNum);
+
       if (emptyArr.indexOf(randomNum) === -1) {
         emptyArr.push(randomNum);
       } else {
@@ -33,7 +33,6 @@ class Lotto extends React.Component {
     return emptyArr;
   };
   handleClick() {
-    console.log(this.pushNumbers(6));
     this.setState({
       numbers: this.pushNumbers(6)
     });
