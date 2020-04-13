@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   width: 70%;
+  flex-wrap: wrap;
 }
 
 li {

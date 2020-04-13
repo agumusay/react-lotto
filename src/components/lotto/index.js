@@ -14,24 +14,23 @@ class Lotto extends React.Component {
     this.reset = this.reset.bind(this);
   }
 
-  pushNumbers = length => {
+  pushNumbers = counter => {
     let emptyArr = [];
     let randomGenerator = num => {
-      return parseInt(Math.random() * num);
+      return parseInt(Math.random() * num + 1);
     };
-    while (length) {
+    while (counter) {
       let randomNum = randomGenerator(49);
-
-      if (emptyArr.indexOf(randomNum) === -1) {
-        emptyArr.push(randomNum);
-      } else {
-        emptyArr.push(randomGenerator(49));
+      while (emptyArr.indexOf(randomNum) !== -1) {
+        randomNum = randomGenerator(49);
       }
-      length--;
+      emptyArr.push(randomNum);
+      counter--;
     }
     emptyArr[emptyArr.length] = randomGenerator(10);
     return emptyArr;
   };
+
   handleClick() {
     this.setState({
       numbers: this.pushNumbers(6)
